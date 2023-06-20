@@ -25,3 +25,28 @@ Pagina 6, Pagina 7, Pagina 8, Pagina 9, TextoPagina10, Pagina11, Pagina12, Pagin
 
 
 
+
+
+// Array
+
+let urls = [
+    "./assets/img/perfumes masculinos/1.jpg",
+    "./assets/img/fotos capa/promoção.png"
+];
+
+
+let imagemOriginal =  document.getElementById("image1");
+let imagemOriginal2 = document.getElementById("image2");
+
+//Função 
+
+for(let i = 0; i < 23; i++){
+    let  novaImagem1 =  imagemOriginal.cloneNode(true);
+    let novaImagem2 = imagemOriginal2.clodeNode(true);
+    novaImagem1.src = urls[0].replace(".jpg", "-" + (i + 1) + ".jpg");
+    novaImagem2.src = urls[1].replace(".jpg", "-" + (i + 1) + ".jpg");
+    document.body.appendChild(novaImagem1);
+    document.body.appendChild(novaImagem2);
+}
+
+console.log("ola mundo");
