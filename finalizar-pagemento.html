@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecommerce</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .produto {
+      max-width: 200px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .produto-imagem {
+      width: 100%;
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 10px;
+    }
+
+    .produto-nome {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .produto-preco {
+      margin-bottom: 5px;
+    }
+
+    .produto-quantidade {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .quantidade-input {
+      width: 40px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    .finalizar-compra {
+      display: block;
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carrinho {
+      margin-top: 20px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .item-carrinho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .item-carrinho span {
+      display: flex;
+      align-items: center;
+    }
+
+    .item-carrinho .excluir-item {
+      color: red;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="produto">
+      <div class="produto-imagem" style="background-image: url(caminho/para/produto1.jpg)"></div>
+      <div class="produto-nome">Produto 1</div>
+      <div class="produto-preco">R$10,00</div>
+      <div class="produto-quantidade">
+        <input type="number" class="quantidade-input" min="1" value="1">
+        unidade(s)
+      </div>
+      <button class="adicionar-produto" data-nome="Produto 1" data-preco="10.00">Adicionar</button>
+    </div>
+    <div class="produto">
+      <div class="produto-imagem" style="background-image: url(caminho/para/produto2.jpg)"></div>
+      <div class="produto-nome">Produto 2</div>
+      <div class="produto-preco">R$20,00</div>
+      <div class="produto-quantidade">
+        <input type="number" class="quantidade-input" min="1" value="1">
+        unidade(s)
+      </div>
+      <button class="adicionar-produto" data-nome="Produto 2" data-preco="20.00">Adicionar</button>
+    </div>
+  </div>
+
+  <div class="carrinho">
+    <h2>Carrinho</h2>
+    <div id="itens-carrinho"></div>
+    <div id="total-carrinho"></div>
+    <button class="finalizar-compra">Finalizar Compra</button>
+  </div>
+
+  <script>
+    const produtos = document.querySelectorAll('.produto');
+    const btnFinalizarCompra = document.querySelector('.finalizar-compra');
+    const itensCarrinho = document.getElementById('itens-carrinho');
+    const totalCarrinho = document.getElementById('total-carrinho');
+    let carrinho = [];
+
+    produtos.forEach(function(produto) {
+      const btnAdicionar = produto.querySelector('.adicionar-produto');
+      const quantidadeInput = produto.querySelector('.quantidade-input');
+      const nome = btnAdicionar.getAttribute('data-nome');
+      const preco = parseFloat(btnAdicionar.getAttribute('data-preco'));
+
+      btnAdicionar.addEventListener('click', function() {
+        const quantidade = parseInt(quantidadeInput.value);
+
+        if (quantidade > 0) {
+          const item = {
+            id: Date.now(), // Identificador único para cada item
+            nome: nome,
+            preco: preco,
+            quantidade: quantidade
+          };
+
+          carrinho.push(item);
+          exibirCarrinho();
+        }
+      });
+    });
+
+    function exibirCarrinho() {
+      itensCarrinho.innerHTML = '';
+      let total = 0;
+
+      carrinho.forEach(function(item) {
+        const valorTotal = item.preco * item.quantidade;
+        total += valorTotal;
+
+        const itemCarrinho = document.createElement('div');
+        itemCarrinho.classList.add('item-carrinho');
+        itemCarrinho.innerHTML = `
+        
+          <span>${item.nome}</span>
+          <span>${item.quantidade}x R$${item.preco.toFixed(2)} = R$${valorTotal.toFixed(2)}</span>
+          <span class="excluir-item" data-id="${item.id}">Excluir</span>
+        `;
+        itensCarrinho.appendChild(itemCarrinho);
+      });
+
+      totalCarrinho.textContent = `Total: R$${total.toFixed(2)}`;
+    }
+
+    itensCarrinho.addEventListener('click', function(event) {
+      if (event.target.classList.contains('excluir-item')) {
+        const itemId = event.target.getAttribute('data-id');
+        carrinho = carrinho.filter(function(item) {
+          return item.id !== parseInt(itemId);
+        });
+        exibirCarrinho();
+      }
+    });
+
+    btnFinalizarCompra.addEventListener('click', function() {
+      const mensagemPedido = carrinho.map(function(item) {
+        return `${item.quantidade}x ${item.nome}`;
+      }).join('\n');
+
+      const linkWhatsApp = `https://wa.me/SEU_NUMERO_DO_WHATSAPP?text=${encodeURIComponent(mensagemPedido)}`;
+
+      window.open(linkWhatsApp, '_blank');
+    });
+  </script>
+</body>
+</html>
