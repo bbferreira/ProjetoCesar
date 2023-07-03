@@ -24,29 +24,9 @@ Pagina 6, Pagina 7, Pagina 8, Pagina 9, TextoPagina10, Pagina11, Pagina12, Pagin
 - CorQuartáriaPágina: #42231F; -> Página 19; 
 
 
+CoresDivsPromoção Masculina : #A6A6A6, #AB9B41, #1616E9, #545454, #E09727, #F6C531, #8F672D, #555D62, #2A2A74, #AAA4A6, #679057, #55525B, #555D62, #D34E50, #ECDE35, #3F3E44, #187CB5, #6E9277, #9DB3C1, #6257E3,  #1F2122, #39373D, #000000
+
+const caminhoOutrasImagens = 'assets/img/promocao/';
 
 
 
-// Array
-
-let urls = [
-    "./assets/img/perfumes masculinos/1.jpg",
-    "./assets/img/fotos capa/promoção.png"
-];
-
-
-let imagemOriginal =  document.getElementById("image1");
-let imagemOriginal2 = document.getElementById("image2");
-
-//Função 
-
-for(let i = 0; i < 23; i++){
-    let  novaImagem1 =  imagemOriginal.cloneNode(true);
-    let novaImagem2 = imagemOriginal2.clodeNode(true);
-    novaImagem1.src = urls[0].replace(".jpg", "-" + (i + 1) + ".jpg");
-    novaImagem2.src = urls[1].replace(".jpg", "-" + (i + 1) + ".jpg");
-    document.body.appendChild(novaImagem1);
-    document.body.appendChild(novaImagem2);
-}
-
-console.log("ola mundo");

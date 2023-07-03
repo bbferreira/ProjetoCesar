@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boulevard Mounde -Perfumes de alta qualidade</title>
+ <link rel="icon" href="assets/img/fotos capa/logo.jpg">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
   <!--Seo Google-->
   <meta name="title" content="Boulevard Mounde -Perfumes de alta qualidade">
@@ -92,18 +94,20 @@
       
       {search_term_string}" , "query-input" : "nome obrigatório=search_term_string" } } 
     </script>
-  <link rel="stylesheet" href="./assets/css/">
+  <link rel="stylesheet" href="./assets/css/index.css">
 </head>
-
 <body>
-
-  <header id="header" class="header fixed-top" style="display: flex; background-color: black; width: 100%;">
-    <div class="container-fluid" style="display: flex; flex-direction: row;">
-      <a href="index.html">
-        <img width="100%" src="./assets/img/fotos capa/logo-2.jpg" alt="Logo">
-      </a>
-      <nav>
-        <ul style="color: white;">
+<header id="header">
+  <div class="logos">
+      <a href="index.html" class="logo-container">
+        <img width="100%" class="logo-B" src="./assets/img/fotos capa/logo.jpg" alt="Logo">
+       </a>
+       </div>
+        <nav id="nav">
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            <span id="hamburger"></span>
+          </button>
+        <ul id="menu" role="menu">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#masculino">Masculino</a></li>
           <li><a href="#feminino">Feminino</a></li>
@@ -111,7 +115,6 @@
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-    </div>
   </header>
   <main>
     <section class=" d-flex align-items-center">
@@ -181,8 +184,8 @@
       <img width="100%" src="./assets/img/fotos capa/img-bou (1)_ml_resize_x2_light_ai.jpg" alt="fragrância glamur">
       <br><br>
       <p>Receba nosso catálago em Pdf</p>
-      <button target="_blank" rel=”noopener noreferrer” download="Catálago-2023.pdf" class="fake-button">Baixar
-        PDF</button>
+      <a href="./assets/Catálago-2023.pdf" class="fake button" target="_blank" rel=”noopener noreferrer”
+        download="Catálago-2023.pdf">Baixar Catalago</a>
       <br>
       <br>
       <video width="100%" id="meu-video" src="assets/videos/Untitled design (10).mp4" controls></video>
@@ -191,10 +194,19 @@
     <section>
       <h1>Finalizar Compra</h1>
       <p>Escolha melhor método de pagamento para você clique no botão abaixo:</p>
-      <a href="">Finalizar compra</a>
+      <a href="finalizar-pagemento.html">Finalizar compra</a>
     </section>
   </main>
+  <footer id="contato">
+    <h1>Distribuição C & C
+      100% Você</h1>
+    <p>Nos siga nas redes sociais</p>
+    <div>
+      <img src="./assets/img/fotos capa/intagram.png" alt="icon-insta">
+      <img src="./assets/img/fotos capa/facebook.png" alt="icon-facebook">
+      <img src="./assets/img/fotos capa/email.png" alt="icon-email">
+    </div>
+  </footer>
 </body>
 <script src="./assets/js/index.js"></script>
-
 </html>
