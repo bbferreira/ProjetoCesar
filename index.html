@@ -108,24 +108,24 @@
             <span id="hamburger"></span>
           </button>
         <ul id="menu" role="menu">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#masculino">Masculino</a></li>
-          <li><a href="#feminino">Feminino</a></li>
-          <li><a href="#pagamento">Pagamento</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#inicio" onclick="esconderMenu()">INICIO</a></li>
+          <li><a href="#masculino" onclick="esconderMenu()">MASCULINO</a></li>
+          <li><a href="#feminino" onclick="esconderMenu()">FEMININO</a></li>
+          <li><a href="#pagamento" onclick="esconderMenu()">PAGAMENTO</a></li>
+          <li><a href="#contato" onclick="esconderMenu()">CONTATO</a></li>
         </ul>
       </nav>
   </header>
   <main>
-    <section class=" d-flex align-items-center">
+    <section id="inicio" class="container-section">
       <div class="container"
         style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div class="image">
           <img width="100%" src="./assets/img/fotos capa/boulevard.jpg" alt="Foto capa">
         </div>
         <div>
-          <h1 style="font-size: 2.8rem;">Produtos</h1>
-          <p style="font-size:2.0rem">Perfumes masculinos</p>
+          <h1 class="title-produtos" style="font-size: 2.8rem;">Produtos</h1>
+          <p class="p-masculinos">Perfumes masculinos</p>
         </div>
       </div>
     </section>
@@ -134,12 +134,14 @@
       margin-bottom: 5.0rem;">
       </div>
     </section>
-    <article>
-      <div>
-        <h2>Descubra um mundo de sofisticação olfativa com nossas fragrâncias importadas.</h2>
+    <article class="article-fragrancias">
+      <div class="fragrancias-olfativas">
+        <h2 class="subtitulo-h2">Descubra um mundo de sofisticação olfativa com nossas fragrâncias importadas.</h2>
         <img width="100%" src="./assets/img/fotos capa/image (1).jpg" alt="imagem promoçaõ 5 perfumes">
-        <h2>Promoção</h2>
-        <p>NA COMPRA DE 5 PERFUMES VOCÊ ESTARA GANHANDO 1 DE BRINDE!</p>
+        <div class="brindes">
+        <h2 class="subtitle-brinde">Promoção</h2>
+        <p class="p-perfume">NA COMPRA DE 5 PERFUMES VOCÊ ESTARA GANHANDO 1 DE BRINDE!</p>
+      </div>
       </div>
       <br>
     </article>
@@ -184,17 +186,17 @@
       <img width="100%" src="./assets/img/fotos capa/img-bou (1)_ml_resize_x2_light_ai.jpg" alt="fragrância glamur">
       <br><br>
       <p>Receba nosso catálago em Pdf</p>
-      <a href="./assets/Catálago-2023.pdf" class="fake button" target="_blank" rel=”noopener noreferrer”
+      <a href="./assets/Catálago-2023.pdf" class="fake-button" target="_blank" rel=”noopener noreferrer”
         download="Catálago-2023.pdf">Baixar Catalago</a>
       <br>
       <br>
-      <video width="100%" id="meu-video" src="assets/videos/Untitled design (10).mp4" controls></video>
+      <video width="100%" id="meu-video" src="assets/videos/Add a subheading.mp4" controls></video>
     </article>
     <br><br><br>
-    <section>
+    <section id="pagamento">
       <h1>Finalizar Compra</h1>
       <p>Escolha melhor método de pagamento para você clique no botão abaixo:</p>
-      <a href="finalizar-pagemento.html">Finalizar compra</a>
+      <a class="fake-button" href="finalizar-pagemento.html">Finalizar compra</a>
     </section>
   </main>
   <footer id="contato">

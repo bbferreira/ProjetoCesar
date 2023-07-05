@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@300&family=Roboto:ital,wght@0,700;1,500&display=swap');
 
+@font-face {
+  font-family: 'EBGaramond-Medium';
+  src: url(/assets/fonts/ebgaramond/EBGaramond-Medium.ttf);
+  
+}
+
+@font-face {
+  font-family: 'EBGaramond-Medium-italic';
+  src: url(/assets/fonts/ebgaramond/EBGaramond-MediumItalic.ttf);
+  
+}
+
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -7,27 +19,53 @@
 }
 
 
-:root{
-
-    font-family: 'Noto Sans JP', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    
+:root {
+  --font-family-primary: 'Noto Sans JP', sans-serif;
+  --font-family-secondary: 'Poppins', sans-serif;
+  --font-family-tercery:'Roboto', sans-serif;
+  --color-header: #010001;
+  --color-primary:#FFFFFF;
+  --cor-secundary:#28282A;
+  ---color-titleBrinde:#FF0000;
+  --color-hover-menu:rgb(99, 90, 90);
+  ---font-family-EBGaramound:'EBGaramond-Medium', sans-serif,
+  ---font-family-EBGaramoundItalic:'EBGaramond-Medium-italic';
 }
+
+
+html {
+  scroll-behavior: smooth;
+ 
+}
+
+
+
+#nav.active {
+  display: block;
+  /* ou qualquer outro estilo que você deseje aplicar para exibir o menu */
+}
+
+
+.menu-hidden {
+  display: none;
+}
+
 
 body,
 ul {
   margin: 0px;
   padding: 0px;
+  
 }
 
 a {
-  color: white;
+  color: var(--color-primary);
   text-decoration: none;
   font-family: sans-serif;
 }
 
 a:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background:var(--color-hover-menu) ;
 }
 
 #logo {
@@ -42,6 +80,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   background:rgb(0, 0, 0);
+width: 100%;
 
   
 }
@@ -50,6 +89,95 @@ a:hover {
   display: flex;
   list-style: none;
   gap: 0.5rem;
+  font-family: var(--font-family-tercery);
+}
+
+#menu a:hover {
+  color: red;
+}
+
+
+.conatiner-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.0rem;
+  justify-content: center;
+}
+
+h1, p{
+  align-items: center;
+  margin-bottom: 1.6rem;
+  text-align: center;
+  
+}
+
+.title-produtos{
+  margin-right: 1.5rem;
+ font-family: var(---font-family-EBGaramound);
+}
+
+.p-masculinos{
+  font-size: 2.0rem;
+  margin-left: -2.0rem;
+  font-family: var(--font-family-primary);
+}
+
+.article-fragrancias{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fragrancias-olfativas{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.subtitulo-h2{
+ text-align: center;
+ font-family: var(---font-family-EBGaramound);
+ margin:1.0rem auto;
+ font-size: 1.5rem;
+ margin-bottom: 1.0rem;
+}
+
+.brindes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20.0rem;
+  background-color: var(--cor-secundary);
+  margin-bottom: 2.5rem;
+}
+
+.subtitle-brinde{
+  font-size: 2.4rem;
+  color: var(---color-titleBrinde);
+  font-family: var(--font-family-tercery);
+  font-weight: 1.0rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1.0rem;
+}
+
+.p-perfume{
+  color: var(--color-primary);
+  font-family: var(--font-family-tercery);
 }
 
 #menu a {
@@ -61,8 +189,26 @@ a:hover {
   display: none;
 }
 
+.fake-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid #333;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.fake-button:hover {
+  background-color: #333;
+  color: #f2f2f2;
+}
 
 @media (max-width: 600px) {
+  @media (max-width: 600px) {
     #menu {
       display: block;
       position: absolute;
@@ -76,11 +222,13 @@ a:hover {
       visibility: hidden;
       overflow-y: hidden;
     }
+    
     #nav.active #menu {
       height: calc(100vh - 70px);
       visibility: visible;
       overflow-y: auto;
     }
+  }
     #menu a {
       padding: 1rem 0;
       margin: 0 1rem;
@@ -122,18 +270,8 @@ a:hover {
       top: -7px;
     }
   }
-    
-
   
-
-
-  
-
-
-  
-
-
-.promocao{
+  .promocao{
     width: 500px;
   height: 150px;
   margin-top: -10px;

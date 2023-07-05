@@ -47,11 +47,12 @@ ImagensF.appendChild(divConjuntoF);
 }
 
 // Menu toogle
+// Menu toggle
 const btnMobile = document.getElementById('btn-mobile');
+const nav = document.getElementById('nav');
 
 function toggleMenu(event) {
-  if (event.type === 'touchstart') event.preventDefault();
-  const nav = document.getElementById('nav');
+  event.preventDefault();
   nav.classList.toggle('active');
   const active = nav.classList.contains('active');
   event.currentTarget.setAttribute('aria-expanded', active);
@@ -64,6 +65,15 @@ function toggleMenu(event) {
 
 btnMobile.addEventListener('click', toggleMenu);
 btnMobile.addEventListener('touchstart', toggleMenu);
+
+// Ocultar menu após o clique
+const menuItems = document.querySelectorAll('#menu a');
+
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener('click', () => {
+    nav.classList.remove('active');
+  });
+});
 
 
 
