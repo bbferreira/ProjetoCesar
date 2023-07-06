@@ -264,6 +264,7 @@ h1, p{
   justify-content: center;
   background-color: var(--color-terceary);
   margin-bottom: 5.0rem;
+  font-family: var(--font-family-tercery);
 }
 
 .domicilio{
@@ -273,12 +274,56 @@ h1, p{
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 .p-mark{
   margin-top: 5.0rem;
+ font-size: 1.4rem;
+ 
+ text-align: center;
 }
+
+.p-mark2{
+  font-size: 1.4rem;
+  margin-top: -1.0rem;
+}
+
+mark{
+ background-color: #010001;
+ color: white;
+ }
+
+ .img-decorativa{
+  margin-top: 2.0rem;
+ }
+
+ .entrega{
+  width: 100%;
+  
+}
+ .p-mark3{
+  margin-top: 5.0rem;
+  font-size: 1.4rem;
+  text-align: center;
+ }
+
+ .icon-caminhao{
+  margin-bottom: 4.3rem;
+  width:50%;
+  
+ }
+
+ .h3-parcela{
+  color: var(--color-primary);
+  margin-top: -2.0rem;
+ }
+
+ .juros{
+  color: var(---color-titleBrinde);
+  font-size: 1.5rem;
+  margin-bottom: 5.0rem;
+ }
 
 #menu a {
   display: block;
