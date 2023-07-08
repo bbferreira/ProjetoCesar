@@ -76,6 +76,20 @@ menuItems.forEach((menuItem) => {
 });
 
 
+//Cokiee
+
+// Função para definir um cookie
+function setCookie(name, value, days) {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+  document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + expires.toUTCString() + ';path=/';
+}
+
+// Exemplo de uso: definindo um cookie com o nome "meuCookie" e valor "12345" que expira em 30 dias
+setCookie('meuCookie', '12345', 30);
+
+
+
 
 
 
