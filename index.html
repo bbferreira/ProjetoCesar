@@ -94,9 +94,26 @@
       
       {search_term_string}" , "query-input" : "nome obrigatório=search_term_string" } } 
     </script>
+
+    <!--Font-wensome-->
+    <script src="https://kit.fontawesome.com/9fc8094a0d.js" crossorigin="anonymous"></script>
+    <!--Css codigo-->
   <link rel="stylesheet" href="./assets/css/index.css">
+  <style>
+    #whatsapp-icon{
+      position: fixed;
+      bottom: 3.0rem;
+      right: -0.9rem;
+      z-index: 9999;
+    }
+
+    #whatsapp-icon:hover{
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  
 <header id="header">
   <div class="logos">
       <a href="index.html" class="logo-container">
@@ -185,39 +202,45 @@
           <img src="./assets/img/fotos capa/mastercard.jpg" alt="Mastercard" style="width: 100%; max-width: 300px;">
         </div>
         <div style="flex-basis: 50%; padding: 5px;">
-          <img src="./assets/img/fotos capa/card.jpg" alt="" style="width: 100%; max-width: 300px;">
+          <img src="./assets/img/fotos capa/card.jpg" alt="" style="width: 80%; max-width: 300px;">
         </div>
         <div style="flex-basis: 50%; padding: 5px;">
-          <img src="./assets/img/fotos capa/visa (1).jpg" alt="" style="width: 100%; max-width: 300px;">
+          <img src="./assets/img/fotos capa/visa (1).jpg" alt="" style="width: 80%; max-width: 300px;">
         </div>
         <div style="flex-basis: 50%; padding: 5px;">
-          <img src="./assets/img/fotos capa/hipervard.jpg" alt="" style="width: 100%; max-width: 300px;">
+          <img src="./assets/img/fotos capa/hipervard.jpg" alt="" style="width: 80%; max-width: 300px;">
         </div>
       </div>
       </div>
     </section>
     <article class="video">
-      <h2>"Descubra a Excelência da Marca Boulevard Mounde: Conheça a Nossa História e Produtos de Qualidade"</h2>
-      <img width="100%" src="./assets/img/fotos capa/img-bou (1)_ml_resize_x2_light_ai.jpg" alt="fragrância glamur">
+      <div class="container-video">
+      <h2  class="h-excelencia" >Descubra a Excelência da Marca Boulevard Mounde: Conheça a Nossa História e Produtos de Qualidade</h2>
+      <img  class="fragrância-glamur" width="100%" src="./assets/img/fotos capa/img-bou (1)_ml_resize_x2_light_ai.jpg" alt="fragrância glamur">
       <br><br>
-      <p>Receba nosso catálago em Pdf</p>
-      <a href="./assets/Catálago-2023.pdf" class="fake-button" target="_blank" rel=”noopener noreferrer”
+      <p class="pdf" >Receba nosso catálago em Pdf</p>
+      <a  href="./assets/Catálago-2023.pdf" class="fake-button" target="_blank" rel=”noopener noreferrer”
         download="Catálago-2023.pdf">Baixar Catalago</a>
-      <br>
-      <br>
+        <div>
       <video width="100%" id="meu-video" src="assets/videos/Add a subheading.mp4" controls></video>
+    </div>
+  </div>
     </article>
     <br><br><br>
-    <section id="pagamento">
-      <h1>Finalizar Compra</h1>
-      <p>Escolha melhor método de pagamento para você clique no botão abaixo:</p>
-      <a class="fake-button" href="finalizar-pagemento.html">Finalizar compra</a>
+    <section  class="pagamento-section" id="pagamento">
+      <div class="finalizar-compra">
+      <h1 class="h1-compra">Finalizar Compra</h1>
+      <p class="p-escolha h-excelencia">Escolha melhor método de pagamento para você clique no botão abaixo:</p>
+      <a href="finalizar-pagemento.html" class="cart-button">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        Ir para o carrinho
+      </a>
+      </div>
     </section>
   </main>
   <footer id="contato">
-    <h1>Distribuição C & C
-      100% Você</h1>
-    <p>Nos siga nas redes sociais</p>
+    <h1 class="h-footer">Distribuição C & C <br>100% Você</h1>
+    <p class="redes-sociais">Nos siga nas redes sociais</p>
     <div>
       <a href="https://instagram.com/cesar_caesar_cesao?igshid=MzRlODBiNWFlZA=="><img src="./assets/img/fotos capa/intagram.png" alt="icon-insta"></a>
       <a href="https://www.facebook.com/cesar.caesarcesao?mibextid=ZbWKwL"><img src="./assets/img/fotos capa/facebook.png" alt="icon-facebook"></a>
@@ -225,5 +248,11 @@
       </div></a>
       </footer>
 </body>
+
+<div id="whatsapp-icon">
+  <a href="https://api.whatsapp.com/send?phone=5514996847761&text=Ol%C3%A1%21+Recentemente%2C+descobri+alguns+perfumes+incr%C3%ADveis+e+fiquei+realmente+interessado+neles.+Gostaria+de+solicitar+algumas+informa%C3%A7%C3%B5es+adicionais+para+me+ajudar+a+tomar+uma+decis%C3%A3o+de+compra+informada.">
+    <img class="whatsapp" src="./assets/img/fotos capa/whatsapp.png" alt="WhatsApp Icon" title="Fale conosco">
+  </a>
+</div>
 <script src="./assets/js/index.js"></script>
 </html>

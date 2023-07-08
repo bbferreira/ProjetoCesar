@@ -38,11 +38,11 @@ const ImagensF = document.getElementById('imagens-container-2');
   ImagensF.appendChild(img1);
 
   const imageP = document.createElement('img');
-  imageP.src = caminhoOutrasImagensF + i + '.jpg';
-  imageP.style.width = '100%'; 
-  divConjuntoF.appendChild(imageP);
+imageP.src = caminhoOutrasImagensF + i + '.jpg';
+imageP.style.width = "100%";
+divConjuntoF.appendChild(imageP);
 ImagensF.appendChild(divConjuntoF);
-  
+
 
 }
 
