@@ -48,6 +48,34 @@
       margin-right: 10px;
     }
 
+    .adicionar-favorito {
+      color: red;
+      cursor: pointer;
+      font-size: 24px;
+      margin-left: 5px;
+    }
+
+    .carrinho-icon {
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .carrinho-quantidade {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+
     .finalizar-compra {
       display: block;
       padding: 10px;
@@ -85,6 +113,11 @@
   </style>
 </head>
 <body>
+  <div class="menu">
+    <i class="carrinho-icon fas fa-shopping-cart"></i>
+    <span class="carrinho-quantidade"></span>
+  </div>
+
   <div class="container">
     <div class="produto">
       <div class="produto-imagem" style="background-image: url(caminho/para/produto1.jpg)"></div>
@@ -94,7 +127,7 @@
         <input type="number" class="quantidade-input" min="1" value="1">
         unidade(s)
       </div>
-      <button class="adicionar-produto" data-nome="Produto 1" data-preco="10.00">Adicionar</button>
+      <i class="adicionar-carrinho fas fa-shopping-cart" data-nome="Produto 1" data-preco="10.00"></i>
     </div>
     <div class="produto">
       <div class="produto-imagem" style="background-image: url(caminho/para/produto2.jpg)"></div>
@@ -104,7 +137,7 @@
         <input type="number" class="quantidade-input" min="1" value="1">
         unidade(s)
       </div>
-      <button class="adicionar-produto" data-nome="Produto 2" data-preco="20.00">Adicionar</button>
+      <i class="adicionar-carrinho fas fa-shopping-cart" data-nome="Produto 2" data-preco="20.00"></i>
     </div>
   </div>
 
@@ -115,15 +148,19 @@
     <button class="finalizar-compra">Finalizar Compra</button>
   </div>
 
+ 
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
   <script>
     const produtos = document.querySelectorAll('.produto');
     const btnFinalizarCompra = document.querySelector('.finalizar-compra');
     const itensCarrinho = document.getElementById('itens-carrinho');
     const totalCarrinho = document.getElementById('total-carrinho');
+    const carrinhoIcon = document.querySelector('.carrinho-icon');
+    const carrinhoQuantidade = document.querySelector('.carrinho-quantidade');
     let carrinho = [];
 
     produtos.forEach(function(produto) {
-      const btnAdicionar = produto.querySelector('.adicionar-produto');
+      const btnAdicionar = produto.querySelector('.adicionar-carrinho');
       const quantidadeInput = produto.querySelector('.quantidade-input');
       const nome = btnAdicionar.getAttribute('data-nome');
       const preco = parseFloat(btnAdicionar.getAttribute('data-preco'));
@@ -148,15 +185,16 @@
     function exibirCarrinho() {
       itensCarrinho.innerHTML = '';
       let total = 0;
+      let quantidadeTotal = 0;
 
       carrinho.forEach(function(item) {
         const valorTotal = item.preco * item.quantidade;
         total += valorTotal;
+        quantidadeTotal += item.quantidade;
 
         const itemCarrinho = document.createElement('div');
         itemCarrinho.classList.add('item-carrinho');
         itemCarrinho.innerHTML = `
-        
           <span>${item.nome}</span>
           <span>${item.quantidade}x R$${item.preco.toFixed(2)} = R$${valorTotal.toFixed(2)}</span>
           <span class="excluir-item" data-id="${item.id}">Excluir</span>
@@ -165,27 +203,15 @@
       });
 
       totalCarrinho.textContent = `Total: R$${total.toFixed(2)}`;
+      carrinhoQuantidade.textContent = quantidadeTotal;
     }
 
     itensCarrinho.addEventListener('click', function(event) {
-      if (event.target.classList.contains('excluir-item')) {
-        const itemId = event.target.getAttribute('data-id');
-        carrinho = carrinho.filter(function(item) {
-          return item.id !== parseInt(itemId);
-        });
-        exibirCarrinho();
-      }
+  if (event.target.classList.contains('excluir-item')) {
+    const itemId = event.target.getAttribute('data-id');
+    carrinho = carrinho.filter(function(item) {
+      return item.id !== parseInt(itemId);
     });
-
-    btnFinalizarCompra.addEventListener('click', function() {
-      const mensagemPedido = carrinho.map(function(item) {
-        return `${item.quantidade}x ${item.nome}`;
-      }).join('\n');
-
-      const linkWhatsApp = `https://wa.me/SEU_NUMERO_DO_WHATSAPP?text=${encodeURIComponent(mensagemPedido)}`;
-
-      window.open(linkWhatsApp, '_blank');
-    });
-  </script>
-</body>
-</html>
+    exibirCarrinho();
+  }
+});

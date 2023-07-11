@@ -75,6 +75,22 @@ menuItems.forEach((menuItem) => {
   });
 });
 
+$(document).ready(function() {
+  var header = $("#header");
+
+  // Verificar a posição da seção atual ao rolar a página
+  $(window).scroll(function() {
+    var scrollPosition = $(window).scrollTop();
+
+    // Adicionar classe de cor ao header quando rolar além da seção "Início"
+    if (scrollPosition > $("#inicio").offset().top) {
+      header.addClass("header-scroll");
+    } else {
+      header.removeClass("header-scroll");
+    }
+  });
+});
+
 
 
 
